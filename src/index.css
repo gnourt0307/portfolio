@@ -37,7 +37,16 @@ html {
   min-width: 320px;
   min-height: 100%;
   background: var(--panel);
+  /* For Firefox */
+  scrollbar-width: none;
+
+  /* For Internet Explorer and Legacy Edge */
+  -ms-overflow-style: none;
   scroll-behavior: smooth !important;
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {
