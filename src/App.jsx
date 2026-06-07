@@ -1,4 +1,5 @@
-import { FolderOpenDot, House, Info, Mail } from "lucide-react";
+import { ChevronDown, FolderOpenDot, House, Info, Mail } from "lucide-react";
+import { useState } from "react";
 import avatar from "./assets/personalImage/image1.JPG";
 import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
@@ -7,15 +8,31 @@ import Project from "./components/Project.jsx";
 import "./App.css";
 
 function App() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const handleNavClick = (event) => {
     const navLinks = document.querySelectorAll(".nav-link");
     navLinks.forEach((link) => link.classList.remove("active"));
     event.currentTarget.classList.add("active");
+    setIsMobileMenuOpen(false);
   };
 
   return (
     <main className="portfolio-shell">
-      <aside className="sidebar" aria-label="Portfolio navigation">
+      <button
+        className={`mobile-menu-toggle${isMobileMenuOpen ? " open" : ""}`}
+        type="button"
+        aria-label="Toggle navigation menu"
+        aria-expanded={isMobileMenuOpen}
+        onClick={() => setIsMobileMenuOpen((current) => !current)}
+      >
+        <ChevronDown aria-hidden="true" />
+      </button>
+
+      <aside
+        className={`sidebar${isMobileMenuOpen ? " open" : ""}`}
+        aria-label="Portfolio navigation"
+      >
         <section className="profile">
           <div className="avatar-frame">
             <img src={avatar} alt="Nguyen Minh Truong" />
