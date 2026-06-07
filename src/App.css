@@ -7,7 +7,7 @@
 
 .sidebar {
   position: relative;
-  z-index: 2;
+  z-index: 20;
   display: flex;
   flex-direction: column;
   background: #1f2220;
@@ -70,6 +70,8 @@
   display: grid;
   gap: 14px;
   padding: 18px 6px;
+  position: sticky;
+  top: 0;
 }
 
 .nav-link {
@@ -97,6 +99,14 @@
   background: var(--moss);
 }
 
+.contact-footer {
+  margin: 0 18px 18px;
+  color: #8f8f8f;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
 @media (max-width: 900px) {
   body {
     overflow: auto;
@@ -110,6 +120,8 @@
     align-self: start;
     border-right: 0;
     border-bottom: 4px solid rgba(195, 201, 183, 0.52);
+    position: sticky;
+    top: 0;
   }
 
   .profile,
@@ -140,5 +152,7 @@
 @media (max-width: 560px) {
   .side-nav {
     grid-template-columns: repeat(1, minmax(0, 1fr));
+    position: sticky;
+    top: 0;
   }
 }

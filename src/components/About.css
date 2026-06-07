@@ -1,6 +1,7 @@
 .about-section {
   min-height: 100vh;
   padding: clamp(78px, 9vw, 120px) clamp(34px, 8vw, 102px) 78px;
+  border-top: 1px solid rgba(195, 201, 183, 0.52);
   background: #111413;
   color: #ffffff;
   font-family: "JetBrains Mono", monospace;

@@ -1,7 +1,9 @@
 import { FolderOpenDot, House, Info, Mail } from "lucide-react";
 import avatar from "./assets/personalImage/image1.JPG";
 import About from "./components/About.jsx";
+import Contact from "./components/Contact.jsx";
 import Home from "./components/Home.jsx";
+import Project from "./components/Project.jsx";
 import "./App.css";
 
 function App() {
@@ -48,6 +50,11 @@ function App() {
       <div className="page-content">
         <Home />
         <About />
+        <Project />
+        <Contact />
+        <p className="contact-footer">
+          // © 2026 Nguyễn Minh Trường — built block by block.
+        </p>
       </div>
     </main>
   );
