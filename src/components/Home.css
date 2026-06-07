@@ -1,0 +1,354 @@
+@property --sky-top {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #c0d9ff;
+}
+
+@property --sky-bottom {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #71baff;
+}
+
+.home-scene {
+  min-height: 100vh;
+  margin: 0;
+  /* --sky-top: #c0d9ff;
+  --sky-bottom: #71baff; */
+  --sky-top: #ff8c4e;
+  --sky-bottom: #c0d9ff;
+  background: linear-gradient(to bottom, var(--sky-top), var(--sky-bottom));
+  animation-name: sky-timelapse;
+  animation-duration: 120s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes sky-timelapse {
+  /* 0%,
+  100% {
+    --sky-top: #c0d9ff;
+    --sky-bottom: #71baff;
+  }
+
+  11.111% {
+    --sky-top: #71baff;
+    --sky-bottom: #567dd2;
+  }
+
+  22.222% {
+    --sky-top: #567dd2;
+    --sky-bottom: #ff8c4e;
+  }
+
+  33.333% {
+    --sky-top: #ff8c4e;
+    --sky-bottom: #182b57;
+  }
+
+  44.444% {
+    --sky-top: #071126;
+    --sky-bottom: #071126;
+  }
+
+  55.555% {
+    --sky-top: #071126;
+    --sky-bottom: #182b57;
+  }
+
+  66.666% {
+    --sky-top: #182b57;
+    --sky-bottom: #567dd2;
+  }
+
+  77.777% {
+    --sky-top: #567dd2;
+    --sky-bottom: #ff8c4e;
+  }
+
+  88.888% {
+    --sky-top: #ff8c4e;
+    --sky-bottom: #c0d9ff;
+  } */
+
+  0%,
+  100% {
+    --sky-top: #ff8c4e;
+    --sky-bottom: #c0d9ff;
+  }
+
+  11.111% {
+    --sky-top: #c0d9ff;
+    --sky-bottom: #71baff;
+  }
+
+  22.222% {
+    --sky-top: #71baff;
+    --sky-bottom: #567dd2;
+  }
+
+  33.333% {
+    --sky-top: #567dd2;
+    --sky-bottom: #ff8c4e;
+  }
+
+  44.444% {
+    --sky-top: #ff8c4e;
+    --sky-bottom: #182b57;
+  }
+
+  55.555% {
+    --sky-top: #071126;
+    --sky-bottom: #071126;
+  }
+
+  66.666% {
+    --sky-top: #071126;
+    --sky-bottom: #182b57;
+  }
+
+  77.777% {
+    --sky-top: #182b57;
+    --sky-bottom: #567dd2;
+  }
+
+  88.888% {
+    --sky-top: #567dd2;
+    --sky-bottom: #ff8c4e;
+  }
+}
+
+.home-scene {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.celestial-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.celestial-body {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: clamp(58px, 7vw, 108px);
+  height: auto;
+  opacity: 0;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  will-change: transform, opacity;
+}
+
+.sun-body {
+  width: clamp(58px, 8vw, 300px);
+  filter: drop-shadow(0 0 20px rgba(255, 239, 154, 0.75));
+}
+
+.moon-body {
+  width: clamp(58px, 5.5vw, 300px);
+  filter: drop-shadow(0 0 16px rgba(214, 230, 255, 0.55));
+}
+
+.cloud-layer {
+  position: absolute;
+  inset: 0 0 26%;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.cloud-track {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  transform: translateX(-50%);
+  animation: cloud-drift 120s linear infinite;
+  will-change: transform;
+}
+
+.cloud-set {
+  position: relative;
+  flex: 0 0 50%;
+  height: 100%;
+}
+
+.cloud {
+  position: absolute;
+  height: auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  filter: drop-shadow(10px 12px 8px rgba(58, 108, 158, 0.22));
+}
+
+.cloud-big-one {
+  top: 9%;
+  left: 2%;
+  width: clamp(142px, 16vw, 244px);
+}
+
+.cloud-mid-one {
+  top: 10%;
+  left: 31%;
+  width: clamp(118px, 13vw, 178px);
+}
+
+.cloud-big-two {
+  top: 17%;
+  left: 49%;
+  width: clamp(166px, 19vw, 268px);
+}
+
+.cloud-small-one {
+  top: 2%;
+  left: 70%;
+  width: clamp(80px, 9vw, 124px);
+}
+
+.cloud-mid-two {
+  top: 14%;
+  left: 78%;
+  width: clamp(118px, 13vw, 176px);
+}
+
+.cloud-big-three {
+  top: 29%;
+  left: 76%;
+  width: clamp(148px, 15vw, 226px);
+}
+
+@keyframes cloud-drift {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.hero-copy {
+  position: absolute;
+  left: clamp(40px, 7vw, 120px);
+  top: clamp(370px, 40vh, 600px);
+  z-index: 4;
+  width: min(800px, calc(100vw - 50px));
+  font-family: "Minecraft", "JetBrains Mono", monospace;
+  color: var(--white);
+  text-shadow: 4px 4px 2px rgba(61, 119, 184, 0.42);
+}
+
+.hero-copy h2 {
+  margin: 0 0 22px;
+  font-size: clamp(35px, 5vw, 70px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.hero-copy p {
+  width: min(600px, 100%);
+  margin: 0;
+  font-size: clamp(15px, 1.45vw, 20px);
+  font-weight: 100;
+  line-height: 1.35;
+}
+
+.landblock {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  width: 100%;
+  min-width: 980px;
+  max-width: none;
+  pointer-events: none;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.stars {
+  z-index: 0;
+  padding-top: 2vh;
+  object-fit: cover;
+  opacity: 0;
+  pointer-events: none;
+  animation: stars-night 120s linear infinite;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+@keyframes stars-night {
+  0%,
+  42%,
+  78%,
+  100% {
+    opacity: 0;
+  }
+
+  55%,
+  72% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .home-scene {
+    min-height: calc(100vh - 62px);
+  }
+
+  .hero-copy {
+    width: min(500px, calc(100vw - 300px));
+    margin-left: -20px;
+    padding-top: 80px;
+  }
+
+  .hero-copy h2 {
+    width: min(500px, calc(100vw - 200px));
+  }
+
+  .cloud-layer {
+    bottom: 34%;
+  }
+}
+
+@media (max-width: 560px) {
+  .home-scene {
+    min-height: calc(100vh - 62px);
+  }
+
+  .hero-copy {
+    width: min(500px, calc(100vw - 50px));
+    margin-left: -20px;
+    padding-top: 30px;
+    text-shadow: 3px 3px 0 rgba(61, 119, 184, 0.42);
+  }
+
+  .hero-copy h2 {
+    width: min(500px, calc(100vw - 100px));
+    font-size: 28px;
+    line-height: 1.08;
+  }
+
+  .hero-copy p {
+    font-size: 12px;
+  }
+
+  .cloud-layer {
+    bottom: 40%;
+  }
+}
+
+@media (max-width: 325px) {
+  .hero-copy h2 {
+    width: 200px;
+  }
+
+  .hero-copy p {
+    width: 300px;
+  }
+}
