@@ -9,6 +9,7 @@ import landblock from "../assets/landblock.png";
 import stars from "../assets/stars.png";
 import moon from "../assets/moon.png";
 import sun from "../assets/sun.png";
+import SteveCanvas from "./SteveCanvas";
 import "./Home.css";
 
 const CELESTIAL_LOOP_MS = 120000;
@@ -159,13 +160,13 @@ function Home() {
       </div>
 
       <div className="hero-copy">
-        <h2>Hi, I'm Truong Nguyen</h2>
-        <p>
+        <h2 className="fade-in-text">Hi, I'm Truong Nguyen</h2>
+        <p className="fade-in-text">
           I'm a full-stack developer who builds clean, responsive, and
           user-friendly web applications.
         </p>
       </div>
-
+      <SteveCanvas />
       <img className="landblock" src={landblock} alt="" aria-hidden="true" />
       <img className="stars" src={stars} alt="" aria-hidden="true" />
     </section>

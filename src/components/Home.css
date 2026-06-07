@@ -12,9 +12,9 @@
 
 .home-scene {
   min-height: 100vh;
+  position: relative;
+  overflow: hidden;
   margin: 0;
-  /* --sky-top: #c0d9ff;
-  --sky-bottom: #71baff; */
   --sky-top: #ff8c4e;
   --sky-bottom: #c0d9ff;
   background: linear-gradient(to bottom, var(--sky-top), var(--sky-bottom));
@@ -24,53 +24,48 @@
   animation-iteration-count: infinite;
 }
 
+.landblock {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  width: 100%;
+  min-width: 1785px;
+  max-width: 1785px;
+  pointer-events: none;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.steve-canvas {
+  position: absolute;
+  left: 0;
+  bottom: 18px;
+  width: 100%;
+  height: 350px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.fade-in-text {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInText 1.2s ease-out forwards;
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes sky-timelapse {
-  /* 0%,
-  100% {
-    --sky-top: #c0d9ff;
-    --sky-bottom: #71baff;
-  }
-
-  11.111% {
-    --sky-top: #71baff;
-    --sky-bottom: #567dd2;
-  }
-
-  22.222% {
-    --sky-top: #567dd2;
-    --sky-bottom: #ff8c4e;
-  }
-
-  33.333% {
-    --sky-top: #ff8c4e;
-    --sky-bottom: #182b57;
-  }
-
-  44.444% {
-    --sky-top: #071126;
-    --sky-bottom: #071126;
-  }
-
-  55.555% {
-    --sky-top: #071126;
-    --sky-bottom: #182b57;
-  }
-
-  66.666% {
-    --sky-top: #182b57;
-    --sky-bottom: #567dd2;
-  }
-
-  77.777% {
-    --sky-top: #567dd2;
-    --sky-bottom: #ff8c4e;
-  }
-
-  88.888% {
-    --sky-top: #ff8c4e;
-    --sky-bottom: #c0d9ff;
-  } */
-
   0%,
   100% {
     --sky-top: #ff8c4e;
@@ -116,12 +111,6 @@
     --sky-top: #567dd2;
     --sky-bottom: #ff8c4e;
   }
-}
-
-.home-scene {
-  position: relative;
-  min-height: 100vh;
-  overflow: hidden;
 }
 
 .celestial-layer {
@@ -258,19 +247,6 @@
   line-height: 1.35;
 }
 
-.landblock {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: 3;
-  width: 100%;
-  min-width: 980px;
-  max-width: none;
-  pointer-events: none;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-}
-
 .stars {
   z-index: 0;
   padding-top: 2vh;
@@ -302,9 +278,9 @@
   }
 
   .hero-copy {
-    width: min(500px, calc(100vw - 300px));
+    width: min(500px, calc(100vw - 350px));
     margin-left: -20px;
-    padding-top: 80px;
+    padding-top: 40px;
   }
 
   .hero-copy h2 {
@@ -324,8 +300,9 @@
   .hero-copy {
     width: min(500px, calc(100vw - 50px));
     margin-left: -20px;
-    padding-top: 30px;
+    padding-top: 0px;
     text-shadow: 3px 3px 0 rgba(61, 119, 184, 0.42);
+    margin-top: -30px;
   }
 
   .hero-copy h2 {
