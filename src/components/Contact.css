@@ -159,6 +159,28 @@
   border-color: #558113;
 }
 
+.contact-form input:disabled,
+.contact-form textarea:disabled,
+.contact-form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.68;
+}
+
+.contact-form-status {
+  margin: -8px 0 -6px;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.contact-form-status.success {
+  color: #8fcb3f;
+}
+
+.contact-form-status.error {
+  color: #ff7b7b;
+}
+
 .contact-form button {
   min-height: 34px;
   border: 0;
