@@ -329,3 +329,10 @@
     width: 300px;
   }
 }
+
+@media (max-height: 950px) {
+  .hero-copy h2,
+  .hero-copy p {
+    display: none;
+  }
+}

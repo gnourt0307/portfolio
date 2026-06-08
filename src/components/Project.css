@@ -49,6 +49,32 @@
   height: 100%;
 }
 
+.project-image-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-bottom: 4px solid #353735;
+  background: #e9eef2;
+  cursor: zoom-in;
+}
+
+.project-card-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top center;
+  transition:
+    filter 160ms ease,
+    transform 160ms ease;
+}
+
+.project-image-button:hover .project-card-image,
+.project-image-button:focus-visible .project-card-image {
+  filter: brightness(1.08);
+  transform: scale(1.015);
+}
+
 .project-preview {
   display: grid;
   min-height: 150px;
@@ -186,6 +212,93 @@
   color: #558113;
 }
 
+.project-gallery-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.76);
+}
+
+.project-gallery-panel {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  width: min(920px, 100%);
+  padding: 18px;
+  border: 2px solid rgba(143, 143, 143, 0.45);
+  background: #171918;
+  box-shadow: 6px 6px 0 #050606;
+}
+
+.gallery-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  background: #111413;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.gallery-close svg {
+  width: 20px;
+  height: 20px;
+}
+
+.gallery-image-frame {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #e9eef2;
+}
+
+.gallery-image-frame img {
+  width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+}
+
+.gallery-controls {
+  display: grid;
+  grid-template-columns: 42px 1fr 42px;
+  align-items: center;
+  gap: 12px;
+}
+
+.gallery-controls button {
+  display: grid;
+  width: 42px;
+  height: 36px;
+  place-items: center;
+  border: 2px solid rgba(143, 143, 143, 0.42);
+  background: #111413;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.gallery-controls button:hover,
+.gallery-controls button:focus-visible,
+.gallery-close:hover,
+.gallery-close:focus-visible {
+  border-color: #558113;
+  color: #a6ff00;
+}
+
+.gallery-controls span {
+  color: #8f8f8f;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+}
+
 @media (max-width: 1100px) {
   .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -203,5 +316,13 @@
 
   .project-preview {
     min-height: 170px;
+  }
+
+  .project-gallery-modal {
+    padding: 12px;
+  }
+
+  .project-gallery-panel {
+    padding: 12px;
   }
 }
