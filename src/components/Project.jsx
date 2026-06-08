@@ -23,7 +23,7 @@ const projects = [
   {
     title: "Employee Management App",
     description:
-      "A comprehensive employee management system with features for tracking attendance, managing leave requests, and generating reports.",
+      "A comprehensive employee management system with features for tracking attendance, managing leave requests, and generating reports. Also includes a check-in app for employees to log their attendance and request time off.",
     images: [employeeManagement, report, checkinApp],
     demo: "",
     code: "https://github.com/gnourt0307/employee-management",
